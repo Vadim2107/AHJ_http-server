@@ -4,8 +4,10 @@
   "description": "ahj_http-server",
   "main": "server.js",
   "scripts": {
-    "test": "jest --coverage",
-    "start": "node server.js"
+    "prestart": "npm install",
+    "start": "forever server.js",
+    "watch": "forever -w server.js",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -23,12 +25,13 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "forever": "^4.0.1",
+    "koa": "^2.13.3",
     "koa-body": "^4.2.0",
     "koa-static": "^5.0.0",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "koa": "^2.13.3",
+    "path": "^0.12.7",
     "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
