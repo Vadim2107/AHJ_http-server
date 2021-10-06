@@ -7,14 +7,14 @@
     "prestart": "npm install",
     "start": "forever server.js",
     "watch": "forever -w server.js",
-    "test": "jest --coverage"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vadim2107/AHJ_http-server.git"
   },
   "keywords": [
-    "http-server"
+    "ahj_http-server"
   ],
   "author": "VaZiAn",
   "license": "ISC",
@@ -24,12 +24,14 @@
   "homepage": "https://github.com/Vadim2107/AHJ_http-server#readme",
   "dependencies": {
     "@koa/cors": "^3.1.0",
-    "forever": "^4.0.1",
     "koa": "^2.13.3",
     "koa-body": "^4.2.0",
     "koa-static": "^5.0.0",
     "path": "^0.12.7",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "forever": "^4.0.1"
   },
   "engines": {
     "node": "12.x"
