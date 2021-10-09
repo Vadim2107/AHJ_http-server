@@ -21,7 +21,13 @@ app.use(koaBody({
 }));
 
 app.use(async (ctx) => {
+    ctx.response.body = 'Я заработал!!!';
     const { method } = ctx.request;
+
+    ctx.response.set({
+        'Access-Control-Allow-Origin': '*',
+    });
+
     switch (method) {
         case "GET":
             if (ctx.request.query.method === "allTickets") {
@@ -63,4 +69,16 @@ app.use(async (ctx) => {
 
 
 const port = process.env.PORT || 7070;
-http.createServer(app.callback()).listen(port);
+// const port = 7070;
+// const port = process.env.PORT;
+// http.createServer(app.callback()).listen(port);
+const server = http.createServer(app.callback());
+
+// слушаем определённый порт
+server.listen(port, (err) => {
+    if (err) {
+        console.log('Error occured:', error);
+        return;
+    }
+    console.log(`server is listening on ${port} port`);
+});
