@@ -21,12 +21,9 @@ app.use(koaBody({
 }));
 
 app.use(async (ctx) => {
+    console.log(ctx.request);
     ctx.response.body = 'Я заработал!!!';
     const { method } = ctx.request;
-
-    ctx.response.set({
-        'Access-Control-Allow-Origin': '*',
-    });
 
     switch (method) {
         case "GET":
@@ -69,8 +66,6 @@ app.use(async (ctx) => {
 
 
 const port = process.env.PORT || 7070;
-// const port = 7070;
-// const port = process.env.PORT;
 // http.createServer(app.callback()).listen(port);
 const server = http.createServer(app.callback());
 
